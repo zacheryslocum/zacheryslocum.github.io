@@ -1,0 +1,11 @@
+---
+const {text,  href, target} = Astro.props;
+export interface Props {
+  text?: string;
+  href?: string;
+  target?: string | '_blank';
+}
+---
+<li class="nav-item">
+  <a class="nav-link" href={href} target={target}>{text}</a>
+</li>

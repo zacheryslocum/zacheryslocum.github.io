@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+import Card from "../components/Card.astro";
+import type { Props as CardType } from "../components/Card.astro";
+const cards: CardType[] = [
+  {
+    title: "Product 1",
+    text: "Body text for product",
+    footer: "",
+  },
+  {
+    title: "Product 2",
+    text: "Body text for product",
+    footer: "",
+  },
+  {
+    title: "Product 3",
+    text: "Body text for product",
+    footer: "",
+  },
+];
+---
+
+<BaseLayout>
+  <div class="jumbotron m-0">
+    <div class="row">
+        <div class="col-8">
+            <h1 class="display-3">About</h1>
+            <p class="lead">I am a graduate student at UNC Charlotte studying Geography with a focus on GIS and Technology.
+                Currently, I am a Research Assistant in the Center for Applied Geographic Information Science.</p>
+            <?php //<p class="lead">This website serves as a portfolio for my professional and personal works.</p> ?>
+        </div>
+        <div class="col-4">
+            <img src="img/portrait.jpg" class="img-fluid img-thumbnail" style="background-color: #FFFFFF;" alt="Photo of Zachery"/>
+        </div>
+    </div>
+  
+    <div class="row card-deck">
+      <style>
+        div.card {
+          margin-right: 5px !important;
+          margin-left: 5px !important;
+        }
+        h4.card-header {
+          border-radius: 0 !important;
+        }
+      </style>
+
+      {
+        cards.map((card) => (
+          <div class="col">
+            <Card {...card} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

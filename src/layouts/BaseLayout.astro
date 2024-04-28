@@ -1,0 +1,48 @@
+---
+import 'bootstrap/dist/css/bootstrap.css';
+
+import NavItem from '../components/NavItem.astro';
+import type { Props as NavItemType } from '../components/NavItem.astro';
+const cards: NavItemType[] = [
+  { text: 'LinkedIn', href: '#' },
+  { text: 'GitHub', href: '#'}
+];
+
+import 'bootswatch/dist/superhero/bootstrap.min.css'
+import "../styles/global.css";
+import icon from "astro-icon";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Zachery Slocum</title>
+  </head>
+  <body>
+    <main role="main" class="container bg-dark">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <span class="navbar-brand">Zachery Slocum</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                  {
+                    cards.map((card) => (
+                      <NavItem {...card} />
+                    ))
+                  }
+                </ul>
+            </div>
+        </nav>
+    </header>
+      <slot />
+    </main>
+   <footer>
+   </footer>
+  </body>
+</html>
